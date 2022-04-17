@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 class AudioUrlPage extends StatefulWidget {
   const AudioUrlPage({Key? key}) : super(key: key);
 
+
+  // https://www.youtube.com/watch?v=MB3YGQ-O1lk
+
   @override
   _AudioUrlPageState createState() => _AudioUrlPageState();
 }
@@ -32,8 +35,6 @@ class _AudioUrlPageState extends State<AudioUrlPage> {
       setState(() {
         isPlaying = state == PlayerState.PLAYING;
 
-
-
         double maxx =    duration.inSeconds.toDouble();
         double cmax = maxx;
       });
@@ -45,8 +46,6 @@ class _AudioUrlPageState extends State<AudioUrlPage> {
         duration = newDuration;
         totalDuration = formatTime(duration);
         maxSeekbar = duration.inSeconds.toDouble();
-        int a  = 5;
-
       });
     });
 
@@ -54,9 +53,6 @@ class _AudioUrlPageState extends State<AudioUrlPage> {
     audioPlayer.onAudioPositionChanged.listen((newDuration) {
       setState(() {
         duration = newDuration;
-
-
-
       });
     });
 
@@ -106,7 +102,6 @@ class _AudioUrlPageState extends State<AudioUrlPage> {
                   //optionally play audio if was paused
                   await audioPlayer.resume();
 
-
                 }),
 
 
@@ -119,7 +114,6 @@ class _AudioUrlPageState extends State<AudioUrlPage> {
                   Text(formatTime(duration)),
                   Text(totalDuration),
 
-                  // Text(formatTime(duration - position) + "/"),
                 ],
               ),
             ),

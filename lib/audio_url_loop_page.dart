@@ -1,18 +1,15 @@
 
-import 'dart:io';
-
 import 'package:audioplayers/audioplayers.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-class AudioAssetPage extends StatefulWidget {
-  const AudioAssetPage({Key? key}) : super(key: key);
+class AudioUrlLoopPage extends StatefulWidget {
+  const AudioUrlLoopPage({Key? key}) : super(key: key);
 
   @override
-  _AudioAssetPageState createState() => _AudioAssetPageState();
+  _AudioUrlLoopPageState createState() => _AudioUrlLoopPageState();
 }
 
-class _AudioAssetPageState extends State<AudioAssetPage> {
+class _AudioUrlLoopPageState extends State<AudioUrlLoopPage> {
 
 
   final audioPlayer = AudioPlayer();
@@ -164,12 +161,8 @@ class _AudioAssetPageState extends State<AudioAssetPage> {
     //repeat song when complete
     audioPlayer.setReleaseMode(ReleaseMode.LOOP);
 
-    //load audio from assets
-    final result = AudioCache(prefix: "assets/");
-    final url = await result.load("my_audio_file.mp3");
-    audioPlayer.setUrl(url.path , isLocal: true);
-
+     //load audio from url
+    audioPlayer.setUrl(url);
 
   }
 }
-
